@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.boguhnindustries.reactiontesttest.Hauptmenue">
+
+    <Button
+        android:id="@+id/ButtonGO"
+        android:layout_width="150dp"
+        android:layout_height="60dp"
+        android:layout_marginBottom="146dp"
+        android:layout_marginLeft="117dp"
+        android:layout_marginRight="8dp"
+        android:elevation="0dp"
+        android:onClick="options"
+        android:text="JUST GO AWAY OPTIONS"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <Button
+        android:id="@+id/button5"
+        android:layout_width="150dp"
+        android:layout_height="60dp"
+        android:text="WON'T WORK"
+        android:layout_marginBottom="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/ButtonGO"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginLeft="117dp" />
+
+    <Button
+        android:id="@+id/HardcoreButton"
+        android:layout_width="150dp"
+        android:layout_height="60dp"
+        android:text="HARDCORE"
+        android:layout_marginBottom="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/button5"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginLeft="117dp" />
+
+    <Button
+        android:id="@+id/gameButton"
+        android:layout_width="150dp"
+        android:layout_height="60dp"
+        android:text="Normal Mode"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/HardcoreButton"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="117dp"
+        android:onClick="startGame"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        />
+
+</android.support.constraint.ConstraintLayout>
