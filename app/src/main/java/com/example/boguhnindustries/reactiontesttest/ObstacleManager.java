@@ -67,8 +67,8 @@ public class ObstacleManager {
         r  = new Random();
         this.playerpoint=playerpoint;
 
-        this.xmax= 1.1*this.speed;
-        this.ymax= 1.1*this.speed;
+        this.xmax= 1.4*this.speed;
+        this.ymax= 1.4*this.speed;
 
 
 
@@ -249,6 +249,7 @@ public class ObstacleManager {
     public void update(){
 
         for(Obstacle ob: obstacleList){
+                //this.speed= this.speed+ gametime;
                 ob.update(this.speed);
 
 

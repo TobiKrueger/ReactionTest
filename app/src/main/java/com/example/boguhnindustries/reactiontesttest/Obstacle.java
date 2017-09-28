@@ -126,6 +126,7 @@ public class Obstacle implements GameObject {
      */
     public void update(double speed) {
 
+        //checks for collusions
         if (!inBorder && this.collidesWithWalls()) {
             inBorder = true;
             this.lastcollusiontime = System.nanoTime();
@@ -134,6 +135,8 @@ public class Obstacle implements GameObject {
         } else {
             inBorder = false;
         }
+
+        // gets the time difference
         long timediff = (System.nanoTime() - this.lastcollusiontime) / 1000000;
         x = (int) (this.lastX + speed * this.xSpeed * timediff / 5.0);
         y = (int) (this.lastY + speed * this.ySpeed * timediff / 5.0);
