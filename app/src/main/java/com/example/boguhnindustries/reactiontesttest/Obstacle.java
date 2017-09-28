@@ -89,7 +89,7 @@ public class Obstacle implements GameObject {
      * @return
      */
     public boolean containsPlayer(Player player) {
-        //missing mid points from player
+
         return obstacle.intersects(player.getPlayerrect(), obstacle);
         /*if (
                         //corners
