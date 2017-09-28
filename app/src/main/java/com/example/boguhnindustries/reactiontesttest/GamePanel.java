@@ -208,10 +208,13 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback {
         else if(gameover){
             //in-effektive
 
+            int xgameoverscreen = canvas.getWidth()/4;
+            int ygameoverscreen = canvas.getHeight()/4 +canvas.getHeight()/8;
+
             gameoverpaint.setTextSize(100);
-            canvas.drawText("GAME OVER",250,600,gameoverpaint);
+            canvas.drawText("GAME OVER",xgameoverscreen+canvas.getWidth()/18,ygameoverscreen,gameoverpaint);
             gameoverpaint.setTextSize(60);
-            canvas.drawText("Tap on screen to play again",160,770,gameoverpaint);
+            canvas.drawText("Tap on screen to play again",xgameoverscreen,ygameoverscreen+canvas.getHeight()/8,gameoverpaint);
         }
 
     }
