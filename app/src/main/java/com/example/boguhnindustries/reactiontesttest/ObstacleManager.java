@@ -237,12 +237,7 @@ public class ObstacleManager {
         }
     }
 
-    public void increseSpeed(int speed){
-        for(Obstacle ob:obstacleList){
-            ob.setxSpeed(ob.getxSpeed()+speed);
-            ob.setySpeed(ob.getySpeed()+speed);
-        }
-    }
+
 
 
 
@@ -255,6 +250,8 @@ public class ObstacleManager {
 
         for(Obstacle ob: obstacleList){
                 ob.update(this.speed);
+
+
             if(ob.containsPlayer(player)){
                 containsplayer=true;
             }
