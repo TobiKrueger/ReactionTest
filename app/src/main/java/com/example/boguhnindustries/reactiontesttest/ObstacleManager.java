@@ -15,6 +15,11 @@ import java.util.Random;
 public class ObstacleManager {
 
     private ArrayList<Obstacle> obstacleList;
+
+    public void setGametime(long gametime) {
+        this.gametime = gametime;
+    }
+
     private long gametime;
     private double speed;
     private int color;
@@ -36,6 +41,8 @@ public class ObstacleManager {
     }
 
     private boolean containsplayer;
+
+
 
 
     /**creates an arraylist with the obstacles and controls them.
@@ -230,6 +237,13 @@ public class ObstacleManager {
         }
     }
 
+    public void increseSpeed(int speed){
+        for(Obstacle ob:obstacleList){
+            ob.setxSpeed(ob.getxSpeed()+speed);
+            ob.setySpeed(ob.getySpeed()+speed);
+        }
+    }
+
 
 
 
@@ -238,6 +252,7 @@ public class ObstacleManager {
      * Updates the Obstacles and checks if they contains the player
      */
     public void update(){
+
         for(Obstacle ob: obstacleList){
                 ob.update(this.speed);
             if(ob.containsPlayer(player)){
