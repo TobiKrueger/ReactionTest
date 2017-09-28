@@ -91,10 +91,26 @@ public class Obstacle implements GameObject {
     public boolean containsPlayer(Player player){
         //missing mid points from player
 
-        if  (   obstacle.contains(player.getPlayer().left,player.getPlayer().top)||
-                obstacle.contains(player.getPlayer().right,player.getPlayer().top)||
-                obstacle.contains(player.getPlayer().left,player.getPlayer().bottom)||
-                obstacle.contains(player.getPlayer().right,player.getPlayer().bottom))
+        if  (
+                //corners
+                obstacle.contains(player.getPlayerrect().left,player.getPlayerrect().top)||
+                obstacle.contains(player.getPlayerrect().right,player.getPlayerrect().top)||
+                obstacle.contains(player.getPlayerrect().left,player.getPlayerrect().bottom)||
+                obstacle.contains(player.getPlayerrect().right,player.getPlayerrect().bottom)||
+
+                //midpoints
+
+
+                obstacle.contains(player.getPlayerrect().left,player.getPlayerrect().top + (player.getPlayerrect().height()/2))||
+
+
+                obstacle.contains(player.getPlayerrect().right,player.getPlayerrect().top + (player.getPlayerrect().height()/2))||
+
+
+                obstacle.contains(player.getPlayerrect().left + (player.getPlayerrect().width()/2),player.getPlayerrect().bottom )||
+                obstacle.contains(player.getPlayerrect().left + (player.getPlayerrect().width()/2),player.getPlayerrect().top)
+
+                )
                 {
 
                     return true;
@@ -165,7 +181,7 @@ public class Obstacle implements GameObject {
         return false;
     }
 
-    /**returns true if the right borader is been hin by the obstacle and changes the yspeed
+    /**returns true if the right borader is been in by the obstacle and changes the yspeed
      *
      * @return
      */
