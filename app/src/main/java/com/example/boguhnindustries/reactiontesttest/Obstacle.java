@@ -50,6 +50,9 @@ public class Obstacle implements GameObject {
         this.ySpeed = ySpeed;
     }
 
+
+
+
     /**
      * Constructor for a obstacle
      *
@@ -82,6 +85,9 @@ public class Obstacle implements GameObject {
         obstacle = new Rect(x, y, x + width, y + height);
     }
 
+    public void setTime(long time) {
+        this.time = time;
+    }
     /**
      * Returns if a Player collides with a obstacle
      *
@@ -137,9 +143,15 @@ public class Obstacle implements GameObject {
         }
 
         // gets the time difference
-        long timediff = (System.nanoTime() - this.lastcollusiontime) / 5000000;
-        x = (int) (this.lastX +  this.xSpeed * timediff+speedmultiplyer * this.xSpeed );
-        y = (int) (this.lastY +  this.ySpeed * timediff+speedmultiplyer * this.ySpeed );
+        double timediff = (System.nanoTime() - this.lastcollusiontime) / 5_000_000.0;
+
+        double gametime =(System.nanoTime()-this.time)/1_000_000_000.0;
+
+        double gamespeed = 2.5-(1.0/(gametime/100+0.5));
+        System.out.println(gamespeed);
+
+        x = (int) (this.lastX +  (this.xSpeed * timediff) * gamespeed*4);
+        y = (int) (this.lastY +  (this.ySpeed * timediff) * gamespeed*4);
 
 
         this.move(x, y);

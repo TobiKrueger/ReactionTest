@@ -74,7 +74,7 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback {
 
 
         // constructs the obstacle manager with obstacles
-        ob = new ObstacleManager(100,4,1,Color.BLUE,context,borders,player,playerpoint );
+        ob = new ObstacleManager(4,1,Color.BLUE,context,borders,player,playerpoint );
 
 
         //paints for score and gameover
@@ -165,7 +165,7 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback {
 
             // Obstacle update
             ob.update();
-            ob.setGametime(this.gametime);
+            //ob.setGametime(this.gametime);
         }
 
 

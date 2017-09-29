@@ -44,7 +44,7 @@ public class ObstacleManager {
 
     /**creates an arraylist with the obstacles and controls them.
      *
-     * @param gameTime
+     *
      * @param obstaclecount
      * @param speed
      * @param color
@@ -52,10 +52,10 @@ public class ObstacleManager {
      * @param boarders
      * @param player
      */
-    public ObstacleManager(long gameTime,int obstaclecount,double speed,int color,Context context,Point boarders,Player player,Point playerpoint){
+    public ObstacleManager(int obstaclecount,double speed,int color,Context context,Point boarders,Player player,Point playerpoint){
         this.speed=speed;
         this.color=color;
-        this.gametime=gameTime;
+        this.gametime=System.nanoTime();
         this.obstaclecount=obstaclecount;
         this.context=context;
         this.boarders =boarders;
@@ -128,6 +128,10 @@ public class ObstacleManager {
 
     public void setGametime(long gametime) {
         this.gametime = gametime;
+
+        for(Obstacle ob :obstacleList){
+            ob.setTime(System.nanoTime());
+        }
     }
 
     /**
@@ -254,12 +258,12 @@ public class ObstacleManager {
 
         for(Obstacle ob: obstacleList){
 
-                long x = (System.nanoTime()-gametime)/1_000_000_000;
+                //long x = (System.nanoTime()-gametime)/1_000_000_000;
 
-                double multiplyer = 2-(1/(x+0.5));
+                //double multiplyer = 2-(1/(x+0.5));
 
-                //System.out.println(multiplyer);
-                ob.update(multiplyer);
+
+                ob.update(speed);
 
 
             if(ob.containsPlayer(player)){
