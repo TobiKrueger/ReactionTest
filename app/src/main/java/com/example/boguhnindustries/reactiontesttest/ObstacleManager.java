@@ -130,6 +130,10 @@ public class ObstacleManager {
     }
 
 
+    /**
+     * should reset the obstacles random but away from the player rect
+     * @param p
+     */
     public void resetObstaclesRandom(Point p){
 
         for(Obstacle ob: obstacleList){
@@ -144,7 +148,7 @@ public class ObstacleManager {
                 x=r.nextInt(boarders.x-100);
                 y=r.nextInt(boarders.y-100);
 
-                if((x>p.x+400||x<p.x-400)||(y>p.y+400||y<p.y-400)){
+                if((x>p.x+500||x<p.x-500)||(y>p.y+500||y<p.y-500)){
                     xisout=false;
                     ob.moveAndReset(x,y);
                 }
@@ -153,6 +157,10 @@ public class ObstacleManager {
         }
     }
 
+    /**
+     * should reset the obstacles random but away from the player rect
+     * @param p
+     */
     public void regen(Point p){
 
         for(Obstacle ob: obstacleList){
@@ -167,7 +175,7 @@ public class ObstacleManager {
                 x=r.nextInt(boarders.x-100);
                 y=r.nextInt(boarders.y-100);
 
-                if((x>p.x+400||x<p.x-400)||(y>p.y+400||y<p.y-400)){
+                if((x>p.x+500||x<p.x-600)||(y>p.y+600||y<p.y-600)){
                     xisout=false;
                     ob.moveAndReset(x,y);
                 }
