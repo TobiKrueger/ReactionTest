@@ -16,9 +16,6 @@ public class ObstacleManager {
 
     private ArrayList<Obstacle> obstacleList;
 
-    public void setGametime(long gametime) {
-        this.gametime = gametime;
-    }
 
     private long gametime;
     private double speed;
@@ -129,6 +126,9 @@ public class ObstacleManager {
 
     }
 
+    public void setGametime(long gametime) {
+        this.gametime = gametime;
+    }
 
     /**
      * should reset the obstacles random but away from the player rect
@@ -247,18 +247,19 @@ public class ObstacleManager {
 
 
 
-
-
-
-
     /**
      * Updates the Obstacles and checks if they contains the player
      */
     public void update(){
 
         for(Obstacle ob: obstacleList){
-                //this.speed= this.speed+ gametime;
-                ob.update(this.speed);
+
+                long x = (System.nanoTime()-gametime)/1_000_000_000;
+
+                double multiplyer = 2-(1/(x+0.5));
+
+                //System.out.println(multiplyer);
+                ob.update(multiplyer);
 
 
             if(ob.containsPlayer(player)){
