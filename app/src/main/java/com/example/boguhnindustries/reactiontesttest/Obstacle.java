@@ -122,9 +122,9 @@ public class Obstacle implements GameObject {
     /**
      * updates the obstacles
      *
-     * @param speed
+     * @param speedmultiplyer
      */
-    public void update(double speed) {
+    public void update(double speedmultiplyer) {
 
         //checks for collusions
         if (!inBorder && this.collidesWithWalls()) {
@@ -137,9 +137,9 @@ public class Obstacle implements GameObject {
         }
 
         // gets the time difference
-        long timediff = (System.nanoTime() - this.lastcollusiontime) / 1000000;
-        x = (int) (this.lastX + speed * this.xSpeed * timediff / 5.0);
-        y = (int) (this.lastY + speed * this.ySpeed * timediff / 5.0);
+        long timediff = (System.nanoTime() - this.lastcollusiontime) / 5000000;
+        x = (int) (this.lastX + speedmultiplyer * this.xSpeed * timediff );
+        y = (int) (this.lastY + speedmultiplyer * this.ySpeed * timediff );
 
 
         this.move(x, y);

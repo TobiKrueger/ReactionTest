@@ -67,8 +67,8 @@ public class ObstacleManager {
         r  = new Random();
         this.playerpoint=playerpoint;
 
-        this.xmax= 1.4*this.speed;
-        this.ymax= 1.4*this.speed;
+        this.xmax= 1.1*this.speed;
+        this.ymax= 1.1*this.speed;
 
 
 
@@ -86,8 +86,8 @@ public class ObstacleManager {
             int y= r.nextInt(900);
 
             // calculating a random double in the range +,- speed/2
-            double xspeed=(xmax*-1)+ r.nextDouble()*(xmax*2);
-            double yspeed=(ymax*-1)+ r.nextDouble()*(ymax*2);
+            double xspeed= r.nextDouble()*(xmax);
+            double yspeed= r.nextDouble()*(ymax);
 
 
             // Typauswahl in obstacle schieben....
