@@ -139,7 +139,7 @@ public class Obstacle implements GameObject {
         // gets the time difference
         long timediff = (System.nanoTime() - this.lastcollusiontime) / 5000000;
         x = (int) (this.lastX +  this.xSpeed * timediff+speedmultiplyer * this.xSpeed );
-        y = (int) (this.lastY +  this.ySpeed * timediff+speedmultiplyer * this.ySpeed *);
+        y = (int) (this.lastY +  this.ySpeed * timediff+speedmultiplyer * this.ySpeed );
 
 
         this.move(x, y);
