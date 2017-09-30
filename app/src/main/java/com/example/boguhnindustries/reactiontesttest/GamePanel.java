@@ -74,7 +74,7 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback {
 
 
         // constructs the obstacle manager with obstacles
-        ob = new ObstacleManager(4,1,Color.BLUE,context,borders,player,playerpoint );
+        ob = new ObstacleManager(5,1,Color.BLUE,context,borders,player,playerpoint );
 
 
         //paints for score and gameover
@@ -188,12 +188,15 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback {
         super.draw(canvas);
 
         canvas.drawColor(Color.WHITE);
-        ob.draw(canvas);
+
+
         //player
         player.draw(canvas);
         //gameborders
         bordersMeMore.draw(canvas);
         // Obstacles
+        ob.draw(canvas);
+
 
         //score
         if(!gameover){

@@ -12,7 +12,7 @@ import java.util.Random;
  * Created by Lorenz on 30.03.2017.
  */
 
-public class ObstacleManager {
+public class ObstacleManager implements GameObject{
 
     private ArrayList<Obstacle> obstacleList;
 
@@ -64,8 +64,8 @@ public class ObstacleManager {
         r  = new Random();
         this.playerpoint=playerpoint;
 
-        this.xmax= 1.1*this.speed;
-        this.ymax= 1.1*this.speed;
+        this.xmax= this.speed;
+        this.ymax= this.speed;
 
 
 
@@ -76,6 +76,9 @@ public class ObstacleManager {
 
     }
 
+    /**
+     * Populates a list with obstacle objects
+     */
     public void populateArraylist() {
         for(int i=1;i<=obstaclecount;i++){
             int n=r.nextInt(4);
@@ -161,35 +164,6 @@ public class ObstacleManager {
         }
     }
 
-    /**
-     * should reset the obstacles random but away from the player rect
-     * @param p
-     */
-    public void regen(Point p){
-
-        for(Obstacle ob: obstacleList){
-
-
-            boolean xisout=true;
-
-            int x;
-            int y;
-
-            while(xisout){
-                x=r.nextInt(boarders.x-100);
-                y=r.nextInt(boarders.y-100);
-
-                if((x>p.x+500||x<p.x-600)||(y>p.y+600||y<p.y-600)){
-                    xisout=false;
-                    ob.moveAndReset(x,y);
-                }
-
-            }
-        }
-    }
-
-
-
     public void populateArraylist(int typ1,int typ2,int typ3,int typ4,int typ5){
 
         for(int i=1;i<=typ1;i++){
@@ -263,7 +237,7 @@ public class ObstacleManager {
                 //double multiplyer = 2-(1/(x+0.5));
 
 
-                ob.update(speed);
+                ob.update();
 
 
             if(ob.containsPlayer(player)){

@@ -34,25 +34,6 @@ public class Obstacle implements GameObject {
     Random generator3000;
 
 
-    public double getxSpeed() {
-        return xSpeed;
-    }
-
-    public void setxSpeed(double xSpeed) {
-        this.xSpeed = xSpeed;
-    }
-
-    public double getySpeed() {
-        return ySpeed;
-    }
-
-    public void setySpeed(double ySpeed) {
-        this.ySpeed = ySpeed;
-    }
-
-
-
-
     /**
      * Constructor for a obstacle
      *
@@ -122,15 +103,12 @@ public class Obstacle implements GameObject {
     }
 
 
-    public void update() {
-    }
 
     /**
      * updates the obstacles
      *
-     * @param speedmultiplyer
      */
-    public void update(double speedmultiplyer) {
+    public void update() {
 
         //checks for collusions
         if (!inBorder && this.collidesWithWalls()) {
@@ -145,10 +123,11 @@ public class Obstacle implements GameObject {
         // gets the time difference
         double timediff = (System.nanoTime() - this.lastcollusiontime) / 5_000_000.0;
 
+        //calculates the gametime (like the score
         double gametime =(System.nanoTime()-this.time)/1_000_000_000.0;
 
+        //calcoulates with a formula a multiplyer
         double gamespeed = 2.5-(1.0/(gametime/100+0.5));
-        System.out.println(gamespeed);
 
         x = (int) (this.lastX +  (this.xSpeed * timediff) * gamespeed*4);
         y = (int) (this.lastY +  (this.ySpeed * timediff) * gamespeed*4);
